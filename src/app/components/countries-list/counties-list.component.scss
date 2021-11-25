@@ -1,0 +1,30 @@
+@import "~ag-grid-community/src/styles/ag-grid.scss";
+@import "~ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
+
+.ag-theme-custom-angular {
+  @include ag-theme-alpine((
+    odd-row-background-color: #f2f8f2,
+    row-border-color: transparent,
+    row-hover-color: null,
+    checkbox-checked-color: #2661ad,
+    range-selection-border-color: #ff00b1,
+    range-selection-background-color: #03305633
+  ));
+
+  .ag-menu-option-active {
+    background-color: #2661ad;
+    color: white;
+  }
+}
+
+.grid-container {
+  position: relative;
+  width: 620px;
+  margin-bottom: 2px;
+  .list {
+    text-align: center;
+    max-width: 750px;
+    height: inherit;
+    margin: auto;
+  }
+}
