@@ -1,3 +1,5 @@
+import {Language} from "./language";
+
 export class Country {
   countryId?: number;
   name?: string;
@@ -6,6 +8,7 @@ export class Country {
   countryCode2?: string;
   countryCode3?: string;
   regionId?: number;
+  languages?: Language[];
 }
 
 

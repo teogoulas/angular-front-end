@@ -1,0 +1,35 @@
+<div *ngIf="currentCountry.countryId !== -1">
+  <div>
+    <label><strong>Country Name:</strong></label> {{ currentCountry.name }}
+  </div>
+  <div>
+    <label><strong>Country Code:</strong></label>
+    {{ currentCountry.countryCode2 }}
+  </div>
+</div>
+
+<div *ngIf="currentCountry.countryId === -1">
+  <br/>
+  <p>No Country Found</p>
+</div>
+
+<div *ngIf="!currentCountry.languages || currentCountry.languages.length === 0">
+  <br/>
+  <p>No Languages Found</p>
+</div>
+
+<div *ngIf="!currentCountry.languages || currentCountry.languages.length > 0">
+  <div class="grid-container">
+    <div class="list row">
+      <h2>Languages List</h2>
+      <ag-grid-angular
+        class="ag-theme-custom-angular"
+        [rowData]="currentCountry.languages"
+        [columnDefs]="columnDefs">
+      </ag-grid-angular>
+    </div>
+    <div class="footer">
+      <a [routerLink]="'../'" class="previous">&laquo; Back</a>
+    </div>
+  </div>
+</div>

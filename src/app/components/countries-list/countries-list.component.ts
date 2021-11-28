@@ -6,7 +6,7 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-countries-list',
   templateUrl: './countries-list.component.html',
-  styleUrls: ['./counties-list.component.scss']
+  styleUrls: ['./countries-list.component.scss']
 })
 export class CountriesListComponent implements OnInit {
   gridApi: any;
@@ -125,7 +125,7 @@ export class CountriesListComponent implements OnInit {
   }
 
   onRowSelection(event: any) {
-    this.router.navigate(['home']);
+    this.router.navigate([`countries/${event.data.countryId}`]);
   }
 
 }

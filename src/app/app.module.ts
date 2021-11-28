@@ -5,16 +5,18 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {CountriesListComponent} from "./components/countries-list/countries-list.component";
 import {AgGridModule} from "ag-grid-angular";
-import {HomeComponent} from "./components/home-component/home.component";
+import {HomeComponent} from "./components/home/home.component";
 import {NgxPaginationModule} from "ngx-pagination";
+import { CountryLanguagesComponent } from './components/country-languages/country-languages.component';
+import { CountriesListComponent } from './components/countries-list/countries-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CountriesListComponent,
-    HomeComponent
+    HomeComponent,
+    CountryLanguagesComponent,
+    CountriesListComponent
   ],
   imports: [
     BrowserModule,

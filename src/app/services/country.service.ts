@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Country } from '../models/country.model';
 import {environment} from "../../environments/environment";
 
-const baseUrl = environment.apiBaseUrl;
+const baseUrl = environment.apiBaseUrl + '/country';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class CountryService {
   }
 
   get(id: any): Observable<Country> {
-    return this.http.get(`${baseUrl}/${id}`);
+    return this.http.get(`${baseUrl}/find/by/id?countryId=${id}`);
   }
 
   create(data: any): Observable<any> {

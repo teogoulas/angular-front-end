@@ -1,21 +1,5 @@
-@import "~ag-grid-community/src/styles/ag-grid.scss";
-@import "~ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
-
-.ag-theme-custom-angular {
-  @include ag-theme-alpine((
-    odd-row-background-color: #f2f8f2,
-    row-border-color: transparent,
-    row-hover-color: null,
-    checkbox-checked-color: #2661ad,
-    range-selection-border-color: #ff00b1,
-    range-selection-background-color: #03305633
-  ));
-
-  .ag-menu-option-active {
-    background-color: #2661ad;
-    color: white;
-  }
-}
+@import "node_modules/ag-grid-community/src/styles/ag-grid";
+@import "node_modules/ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin";
 
 html, body {
   position: absolute;
@@ -25,9 +9,43 @@ html, body {
   padding: 0;
   overflow: hidden;
   box-sizing: border-box;
+
   .content {
     position: relative;
     width: 620px;
     height: 80%;
+  }
+}
+
+.ag-theme-custom-angular {
+  @include ag-theme-alpine((
+    odd-row-background-color: #f2f8f2,
+    row-border-color: transparent,
+    //row-hover-color: null,
+    checkbox-checked-color: #2661ad,
+    range-selection-border-color: null,
+    range-selection-background-color: #03305633
+  ));
+  width: 100%;
+  text-align: left;
+
+  .ag-menu-option-active {
+    background-color: #2661ad;
+    color: white;
+  }
+}
+
+.grid-container {
+  position: relative;
+
+  .list {
+    text-align: center;
+    max-width: 750px;
+    height: inherit;
+    margin: auto auto 6px auto;
+  }
+
+  .footer {
+    text-align: right;
   }
 }
