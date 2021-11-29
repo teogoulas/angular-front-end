@@ -17,6 +17,10 @@ export class CountryService {
     return this.http.get<any>(`${baseUrl}/list`, {params});
   }
 
+  getAllGdp(params: any): Observable<any> {
+    return this.http.get<any>(`${baseUrl}/gdp`, {params});
+  }
+
   get(id: any): Observable<Country> {
     return this.http.get(`${baseUrl}/find/by/id?countryId=${id}`);
   }

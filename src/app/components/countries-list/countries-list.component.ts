@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Country } from 'src/app/models/country.model';
 import { CountryService } from 'src/app/services/country.service';
 import {Router} from "@angular/router";
+import {getRequestParams} from "../../services/utils";
 
 @Component({
   selector: 'app-countries-list',
@@ -33,7 +34,7 @@ export class CountriesListComponent implements OnInit {
     this.getCountries();
   }
 
-  getRequestParams(country: Country, page: number, rowsPerPage: number, asc: boolean, by: string): any {
+  createParamMap(country: Country, page: number, rowsPerPage: number, asc: boolean, by: string): any {
     let params: any = {};
 
     if (country) {
@@ -69,29 +70,7 @@ export class CountriesListComponent implements OnInit {
       }
     }
 
-    if (page) {
-      params[`page`] = page;
-    }
-
-    if (rowsPerPage) {
-      params[`rowsPerPage`] = rowsPerPage;
-    } else {
-      params[`rowsPerPage`] = 20
-    }
-
-    if (asc !== null) {
-      params[`asc`] = asc
-    } else {
-      params[`asc`] = false
-    }
-
-    if (by) {
-      params[`by`] = by
-    } else {
-      params[`by`] = 'countryId'
-    }
-
-    return params;
+    return getRequestParams(params, page, rowsPerPage, asc, by);
   }
 
   handlePageSizeChange(event: any): void {
@@ -100,7 +79,7 @@ export class CountriesListComponent implements OnInit {
   }
 
   getCountries(): void {
-    const params = this.getRequestParams(this.selectedCountry, this.page, this.pageSize, this.asc, this.by);
+    const params = this.createParamMap(this.selectedCountry, this.page, this.pageSize, this.asc, this.by);
     this.countryService.getAll(params)
       .subscribe(
         response => {

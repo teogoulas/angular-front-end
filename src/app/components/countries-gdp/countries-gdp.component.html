@@ -1,0 +1,23 @@
+<div class="grid-container">
+  <div class="list row">
+    <h2>Countries Population Stats</h2>
+    <ag-grid-angular
+      class="ag-theme-custom-angular"
+      [pagination]="true"
+      [paginationPageSize]="pageSize"
+      [rowData]="countries"
+      [columnDefs]="columnDefs"
+      [rowSelection]="rowSelection"
+      (gridReady)="onGridReady($event)">
+    </ag-grid-angular>
+  </div>
+  <div class="footer">
+    Items per Page:
+    <select (change)="handlePageSizeChange($event)">
+      <option *ngFor="let size of pageSizes" [ngValue]="pageSize">
+        {{ size }}
+      </option>
+    </select>
+  </div>
+</div>
+

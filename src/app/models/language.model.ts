@@ -1,4 +1,4 @@
-export class Language {
+export class LanguageModel {
   languageId?: number;
   language?: string;
 }

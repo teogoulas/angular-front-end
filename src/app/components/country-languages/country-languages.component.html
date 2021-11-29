@@ -13,16 +13,15 @@
   <p>No Country Found</p>
 </div>
 
-<div *ngIf="!currentCountry.languages || currentCountry.languages.length === 0">
-  <br/>
-  <p>No Languages Found</p>
-</div>
-
-<div *ngIf="!currentCountry.languages || currentCountry.languages.length > 0">
+<div>
   <div class="grid-container">
-    <div class="list row">
+    <div *ngIf="currentCountry.countryId !== -1" class="list row">
       <h2>Languages List</h2>
-      <ag-grid-angular
+      <div *ngIf="!currentCountry.languages || currentCountry.languages.length === 0">
+        <br/>
+        <p>No Languages Found</p>
+      </div>
+      <ag-grid-angular *ngIf="!currentCountry.languages || currentCountry.languages.length > 0"
         class="ag-theme-custom-angular"
         [rowData]="currentCountry.languages"
         [columnDefs]="columnDefs">

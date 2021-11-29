@@ -1,4 +1,5 @@
-import {Language} from "./language";
+import {LanguageModel} from "./language.model";
+import {CountryStats} from "./country-stats.model";
 
 export class Country {
   countryId?: number;
@@ -8,7 +9,8 @@ export class Country {
   countryCode2?: string;
   countryCode3?: string;
   regionId?: number;
-  languages?: Language[];
+  languages?: LanguageModel[];
+  countryStats?: CountryStats[];
 }
 
 

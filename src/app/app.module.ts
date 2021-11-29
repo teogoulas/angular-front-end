@@ -10,13 +10,15 @@ import {HomeComponent} from "./components/home/home.component";
 import {NgxPaginationModule} from "ngx-pagination";
 import { CountryLanguagesComponent } from './components/country-languages/country-languages.component';
 import { CountriesListComponent } from './components/countries-list/countries-list.component';
+import { CountriesGdpComponent } from './components/countries-gdp/countries-gdp.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CountryLanguagesComponent,
-    CountriesListComponent
+    CountriesListComponent,
+    CountriesGdpComponent
   ],
   imports: [
     BrowserModule,
