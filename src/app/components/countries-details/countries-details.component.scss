@@ -1,0 +1,21 @@
+.ag-theme-custom-angular {
+  height: 470px;
+}
+
+.grid-container {
+  width: 1020px;
+  .dropdown-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    .region {
+      width: 250px;
+    }
+  }
+}
+
+.region-dropdown .multiselect-dropdown .dropdown-list .multiselect-item-checkbox {
+  width: 300px!important;
+}

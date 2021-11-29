@@ -23,3 +23,7 @@ export function getRequestParams(params: any, page: number, rowsPerPage: number,
 
   return params;
 }
+
+export function range(start: number, end: number) {
+  return (new Array(end - start + 1)).fill(undefined).map((_, i) => i + start);
+}

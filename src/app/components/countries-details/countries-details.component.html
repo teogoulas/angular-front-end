@@ -1,0 +1,67 @@
+<div class="grid-container">
+  <div class="list row">
+    <h2>Countries Population Stats</h2>
+    <div class="col-md-8">
+      <div class="dropdown-container">
+          <div class="region">
+            <ng-multiselect-dropdown class="region-dropdown"
+                                     [placeholder]="'Regions'"
+                                     [settings]="dropdownSettings"
+                                     [data]="regions"
+                                     (onSelect)="onRegionSelect($event)"
+                                     (onDeSelect)="onRegionDeSelect()"
+            >
+            </ng-multiselect-dropdown>
+
+          </div>
+        <div class="region">
+          <ng-multiselect-dropdown class="region-dropdown"
+                                   [placeholder]="'Year From'"
+                                   [settings]="dropdownSettings"
+                                   [data]="years"
+                                   (onSelect)="onYearFromSelect($event)"
+                                   (onDeSelect)="onYearFromDeSelect()"
+          >
+          </ng-multiselect-dropdown>
+
+        </div>
+        <div class="region">
+          <ng-multiselect-dropdown class="region-dropdown"
+                                   [placeholder]="'Year To'"
+                                   [settings]="dropdownSettings"
+                                   [data]="years"
+                                   (onSelect)="onYearToSelect($event)"
+                                   (onDeSelect)="onYearToDeSelect()"
+          >
+          </ng-multiselect-dropdown>
+
+        </div>
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="search()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+    <ag-grid-angular
+      class="ag-theme-custom-angular"
+      [pagination]="true"
+      [paginationPageSize]="pageSize"
+      [rowData]="countries"
+      [columnDefs]="columnDefs"
+      [rowSelection]="rowSelection"
+      (gridReady)="onGridReady($event)">
+    </ag-grid-angular>
+  </div>
+  <div class="footer">
+    Items per Page:
+    <select (change)="handlePageSizeChange($event)">
+      <option *ngFor="let size of pageSizes" [ngValue]="pageSize">
+        {{ size }}
+      </option>
+    </select>
+  </div>
+</div>
+

@@ -8,9 +8,11 @@ import { AppComponent } from './app.component';
 import {AgGridModule} from "ag-grid-angular";
 import {HomeComponent} from "./components/home/home.component";
 import {NgxPaginationModule} from "ngx-pagination";
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { CountryLanguagesComponent } from './components/country-languages/country-languages.component';
 import { CountriesListComponent } from './components/countries-list/countries-list.component';
 import { CountriesGdpComponent } from './components/countries-gdp/countries-gdp.component';
+import { CountriesDetailsComponent } from './components/countries-details/countries-details.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { CountriesGdpComponent } from './components/countries-gdp/countries-gdp.
     HomeComponent,
     CountryLanguagesComponent,
     CountriesListComponent,
-    CountriesGdpComponent
+    CountriesGdpComponent,
+    CountriesDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import { CountriesGdpComponent } from './components/countries-gdp/countries-gdp.
     FormsModule,
     HttpClientModule,
     AgGridModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgMultiSelectDropDownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

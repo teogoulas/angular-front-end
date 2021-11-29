@@ -11,6 +11,8 @@ export class Country {
   regionId?: number;
   languages?: LanguageModel[];
   countryStats?: CountryStats[];
+  continentName?: string;
+  regionName?: string;
 }
 
 

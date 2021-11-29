@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Country } from '../models/country.model';
 import {environment} from "../../environments/environment";
 
-const baseUrl = environment.apiBaseUrl + '/country';
+const baseUrl = environment.apiBaseUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -14,34 +14,22 @@ export class CountryService {
   constructor(private http: HttpClient) { }
 
   getAll(params: any): Observable<any> {
-    return this.http.get<any>(`${baseUrl}/list`, {params});
+    return this.http.get<any>(`${baseUrl}/country/list`, {params});
   }
 
   getAllGdp(params: any): Observable<any> {
-    return this.http.get<any>(`${baseUrl}/gdp`, {params});
+    return this.http.get<any>(`${baseUrl}/country/gdp`, {params});
   }
 
   get(id: any): Observable<Country> {
-    return this.http.get(`${baseUrl}/find/by/id?countryId=${id}`);
+    return this.http.get(`${baseUrl}/country/find/by/id?countryId=${id}`);
   }
 
-  create(data: any): Observable<any> {
-    return this.http.post(baseUrl, data);
+  getDetails(params: any): Observable<any> {
+    return this.http.get<any>(`${baseUrl}/country/details`, {params});
   }
 
-  update(id: any, data: any): Observable<any> {
-    return this.http.put(`${baseUrl}/${id}`, data);
-  }
-
-  delete(id: any): Observable<any> {
-    return this.http.delete(`${baseUrl}/${id}`);
-  }
-
-  deleteAll(): Observable<any> {
-    return this.http.delete(baseUrl);
-  }
-
-  findByTitle(title: any): Observable<Country[]> {
-    return this.http.get<Country[]>(`${baseUrl}?title=${title}`);
+  getRegions(params: any): Observable<any> {
+    return this.http.get<any>(`${baseUrl}/region/list`, {params});
   }
 }

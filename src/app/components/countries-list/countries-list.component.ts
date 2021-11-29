@@ -95,8 +95,6 @@ export class CountriesListComponent implements OnInit {
 
   refreshList(): void {
     this.getCountries();
-    this.selectedCountry = {};
-    this.currentIndex = -1;
   }
 
   onGridReady(params: any) {
